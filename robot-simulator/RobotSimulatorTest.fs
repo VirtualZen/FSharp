@@ -12,7 +12,7 @@ let ``At origin facing north`` () =
     let expected = create Direction.North (0, 0)
     create Direction.North (0, 0) |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``At negative position facing south`` () =
     let expected = create Direction.South (-1, -1)
     create Direction.South (-1, -1) |> should equal expected
