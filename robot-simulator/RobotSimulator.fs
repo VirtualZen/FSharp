@@ -29,11 +29,25 @@ let moveLeft robot =
 let walk robot =
     let (x, y) = robot.position
     match robot.direction with
-        | _ -> {robot with position = (x    , y + 1)}
+        | North -> {robot with position = (x, y + 1)}
+        | South -> {robot with position = (x, y - 1)}
+        | East -> {robot with position = (x + 1, y)}
+        | West -> {robot with position = (x - 1, y)}
 
+let moveInstruction robot instruction =
+    match instruction with
+        | 'R' -> moveRight robot
+        | 'L' -> moveLeft robot
+        | 'A' -> walk robot
+        | _ -> failwith "Wrong Instruction"
 
-let move instructions robot =
-    match instructions with
-        | "R" -> moveRight robot
-        | "L" -> moveLeft robot
-        | "A" -> walk robot
+let rec move instructions robot =
+    let robot = Seq.head(instructions) |> moveInstruction robot
+    // TODO make tail work nicer, understand solution with fold
+    let t = Seq.tail(instructions)
+    if Seq.length t > 0 then
+        move t robot
+    else
+        robot
+
+        
