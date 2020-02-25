@@ -10,7 +10,24 @@ let create direction position = { direction = direction; position = position}
 let rotate robot newDirection =
     {robot with direction = newDirection}
 
-let move instructions robot = 
+// would like to refactor moveRight and moveLeft with a single function
+// to use as parameter a list of tuples [(North,East);(East,South);(South,West);(West,North);]
+let moveRight robot = 
     match robot.direction with
         | North -> rotate robot East
         | East -> rotate robot South
+        | South -> rotate robot West
+        | West -> rotate robot North
+
+let moveLeft robot = 
+    match robot.direction with
+        | North -> rotate robot West
+        | West -> rotate robot South
+        | South -> rotate robot East
+        | East -> rotate robot North
+        
+
+let move instructions robot =
+    match instructions with
+        | "R" -> moveRight robot
+        | "L" -> moveLeft robot
