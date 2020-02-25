@@ -17,13 +17,13 @@ let ``At negative position facing south`` () =
     let expected = create Direction.South (-1, -1)
     create Direction.South (-1, -1) |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Changes north to east`` () =
     let robot = create Direction.North (0, 0)
     let expected = create Direction.East (0, 0)
     move "R" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Changes east to south`` () =
     let robot = create Direction.East (0, 0)
     let expected = create Direction.South (0, 0)
