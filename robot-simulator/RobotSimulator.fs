@@ -26,8 +26,14 @@ let moveLeft robot =
         | South -> rotate robot East
         | East -> rotate robot North
         
+let walk robot =
+    let (x, y) = robot.position
+    match robot.direction with
+        | _ -> {robot with position = (x    , y + 1)}
+
 
 let move instructions robot =
     match instructions with
         | "R" -> moveRight robot
         | "L" -> moveLeft robot
+        | "A" -> walk robot

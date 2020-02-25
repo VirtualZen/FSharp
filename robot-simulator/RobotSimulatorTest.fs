@@ -47,25 +47,25 @@ let ``Changes north to west`` () =
     let expected = create Direction.West (0, 0)
     move "L" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Changes west to south`` () =
     let robot = create Direction.West (0, 0)
     let expected = create Direction.South (0, 0)
     move "L" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Changes south to east`` () =
     let robot = create Direction.South (0, 0)
     let expected = create Direction.East (0, 0)
     move "L" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Changes east to north`` () =
     let robot = create Direction.East (0, 0)
     let expected = create Direction.North (0, 0)
     move "L" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Facing north increments Y`` () =
     let robot = create Direction.North (0, 0)
     let expected = create Direction.North (0, 1)
