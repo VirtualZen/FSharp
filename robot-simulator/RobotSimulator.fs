@@ -44,9 +44,9 @@ let moveInstruction robot instruction =
 let rec move instructions robot =
     let robot = Seq.head(instructions) |> moveInstruction robot
     // TODO make tail work nicer, understand solution with fold
-    let t = Seq.tail(instructions)
-    if Seq.length t > 0 then
-        move t robot
+    let remainingInstructions = Seq.tail(instructions)
+    if Seq.length remainingInstructions > 0 then
+        move remainingInstructions robot
     else
         robot
 

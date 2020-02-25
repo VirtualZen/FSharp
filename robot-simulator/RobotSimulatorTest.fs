@@ -89,32 +89,32 @@ let ``Facing west decrements X`` () =
     let expected = create Direction.West (-1, 0)
     move "A" robot |> should equal expected
 
-    // new test case to check instruction pair
+// new test case to check instruction pair
 [<Fact>]
 let ``Moving east one step`` () =
     let robot = create Direction.North (7, 3)
     let expected = create Direction.East (8, 3)
     move "RA" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Moving east and north from README`` () =
     let robot = create Direction.North (7, 3)
     let expected = create Direction.West (9, 4)
     move "RAALAL" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Moving west and north`` () =
     let robot = create Direction.North (0, 0)
     let expected = create Direction.West (-4, 1)
     move "LAAARALA" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Moving west and south`` () =
     let robot = create Direction.East (2, -7)
     let expected = create Direction.South (-3, -8)
     move "RRAAAAALA" robot |> should equal expected
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Moving east and north`` () =
     let robot = create Direction.South (8, 4)
     let expected = create Direction.North (11, 5)
