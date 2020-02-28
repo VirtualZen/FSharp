@@ -16,7 +16,7 @@ let ``Recognizes 0`` () =
           "   " ]
     convert rows |> should equal (Some "0")
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Recognizes 1`` () =
     let rows = 
         [ "   ";
