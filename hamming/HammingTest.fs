@@ -24,6 +24,10 @@ let ``Long identical strands`` () =
     distance "GGACTGAAATCTG" "GGACTGAAATCTG" |> should equal (Some 0)
 
 [<Fact>]
+let ``Long partially different strands`` () =
+    distance "GGACGGATATCAG" "GGACTGAAATCTG" |> should equal (Some 3)
+
+[<Fact>]
 let ``Long different strands`` () =
     distance "GGACGGATTCTG" "AGGACGGATTCT" |> should equal (Some 9)
 
