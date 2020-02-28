@@ -151,7 +151,7 @@ let ``Recognizes string of decimal numbers`` () =
     convert rows |> should equal (Some "1234567890")
 
 [<Fact(Skip = "Remove to run test")>]
-let ``Numbers separated by empty lines are recognized. Lines are joined by commas.`` () =
+let ``Numbers separated by empty lines are recognized - Lines are joined by commas.`` () =
     let rows = 
         [ "    _  _ ";
           "  | _| _|";
