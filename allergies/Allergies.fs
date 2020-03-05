@@ -5,7 +5,7 @@ open System
 // TODO: define the Allergen type
 [<Flags>]
 type Allergen = 
-   | None           = 0b00000000
+//   | None           = 0b00000000
    | Eggs           = 0b00000001
    | Peanuts        = 0b00000010
    | Shellfish      = 0b00000100
@@ -17,6 +17,16 @@ type Allergen =
 
 
 let allergicTo score allergen =
-    enum<Allergen> (score) &&& allergen > Allergen.None
+    int (enum<Allergen> (score) &&& allergen) > 0
 
-let list codedAllergies = failwith "Not Implenented."
+// TODO understand this deeper, feel that it is good code but not very readable because of the downcast
+// Is it possible or necessary to make this static or evaluate just once
+let enumToList<'a> =
+    (System.Enum.GetValues(typeof<'a>)
+    :?>
+        ('a [])) |> Array.toList
+
+let list score =
+    enumToList<Allergen>
+    |> List.filter (fun item -> allergicTo score item)
+    

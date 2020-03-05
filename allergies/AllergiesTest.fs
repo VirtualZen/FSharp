@@ -167,39 +167,39 @@ let ``Testing for cats allergy - allergic to something, but not cats`` () =
 let ``Testing for cats allergy - allergic to everything`` () =
     allergicTo 255 Allergen.Cats |> should equal true
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - no allergies`` () =
     list 0 |> should be Empty
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - just eggs`` () =
     list 1 |> should equal [Allergen.Eggs]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - just peanuts`` () =
     list 2 |> should equal [Allergen.Peanuts]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - just strawberries`` () =
     list 8 |> should equal [Allergen.Strawberries]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - eggs and peanuts`` () =
     list 3 |> should equal [Allergen.Eggs; Allergen.Peanuts]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - more than eggs but not peanuts`` () =
     list 5 |> should equal [Allergen.Eggs; Allergen.Shellfish]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - lots of stuff`` () =
     list 248 |> should equal [Allergen.Strawberries; Allergen.Tomatoes; Allergen.Chocolate; Allergen.Pollen; Allergen.Cats]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - everything`` () =
     list 255 |> should equal [Allergen.Eggs; Allergen.Peanuts; Allergen.Shellfish; Allergen.Strawberries; Allergen.Tomatoes; Allergen.Chocolate; Allergen.Pollen; Allergen.Cats]
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``List - no allergen score parts`` () =
     list 509 |> should equal [Allergen.Eggs; Allergen.Shellfish; Allergen.Strawberries; Allergen.Tomatoes; Allergen.Chocolate; Allergen.Pollen; Allergen.Cats]
 
