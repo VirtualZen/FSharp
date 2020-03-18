@@ -8,10 +8,18 @@ let clear buffer = { buffer with items = []}
 
 // TODO struggled half an hour forgetting to put value in a list
 let write value buffer =
-    { buffer with items = buffer.items @ [value] }
+    if buffer.items.Length = buffer.size then
+        failwith "Buffer Full."
+    else
+        { buffer with items = buffer.items @ [value] }
 
         
-let forceWrite value buffer = failwith "You need to implement this function."
+let forceWrite value buffer =
+    if buffer.items.Length = buffer.size then
+        { buffer with items = buffer.items.Tail @ [value] }
+    else
+        { buffer with items = buffer.items @ [value] }
+
 
 let read buffer =
     match buffer.items with    
