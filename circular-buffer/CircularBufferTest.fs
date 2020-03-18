@@ -38,13 +38,13 @@ let ``Items are read in the order they are written`` () =
     let (val5, _) = read buffer4
     val5 |> should equal 2
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Full buffer can't be written to`` () =
     let buffer1 = mkCircularBuffer 1
     let buffer2 = write 1 buffer1
     (fun () -> write 2 buffer2 |> ignore) |> should throw typeof<Exception>
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``A read frees up capacity for another write`` () =
     let buffer1 = mkCircularBuffer 1
     let buffer2 = write 1 buffer1
@@ -91,7 +91,7 @@ let ``Clear does nothing on empty buffer`` () =
     let (val4, _) = read buffer3
     val4 |> should equal 1
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Overwrite acts like write on non-full buffer`` () =
     let buffer1 = mkCircularBuffer 2
     let buffer2 = write 1 buffer1
@@ -101,7 +101,7 @@ let ``Overwrite acts like write on non-full buffer`` () =
     let (val5, _) = read buffer4
     val5 |> should equal 2
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Overwrite replaces the oldest item on full buffer`` () =
     let buffer1 = mkCircularBuffer 2
     let buffer2 = write 1 buffer1
@@ -112,7 +112,7 @@ let ``Overwrite replaces the oldest item on full buffer`` () =
     let (val6, _) = read buffer5
     val6 |> should equal 3
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Overwrite replaces the oldest item remaining in buffer following a read`` () =
     let buffer1 = mkCircularBuffer 3
     let buffer2 = write 1 buffer1
@@ -129,7 +129,7 @@ let ``Overwrite replaces the oldest item remaining in buffer following a read`` 
     let (val10, _) = read buffer9
     val10 |> should equal 5
 
-[<Fact(Skip = "Remove to run test")>]
+[<Fact>]
 let ``Initial clear does not affect wrapping around`` () =
     let buffer1 = mkCircularBuffer 2
     let buffer2 = clear buffer1
